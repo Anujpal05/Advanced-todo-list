@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addTask } from '../redux/taskSlice';
 import '../css/styles.css';
 
 const TaskInput = () => {
     const [taskText, setTaskText] = useState('');
     const dispatch = useDispatch();
+    const items = useSelector((state) => state.tasks.items);
 
     const handleInputChange = (event) => {
         setTaskText(event.target.value);
